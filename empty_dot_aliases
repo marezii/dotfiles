@@ -1,0 +1,10 @@
+# Managed by chezmoi
+
+alias desktop='cd ~/Desktop'
+alias repos='cd ~/git'
+
+alias zshrce='chezmoi edit ~/.zshrc'
+alias zshrcs='chezmoi apply && source ~/.zshrc'
+alias aliase='chezmoi edit ~/.aliases'
+
+alias c='clear'

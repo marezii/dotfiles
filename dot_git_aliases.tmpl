@@ -1,0 +1,49 @@
+# Managed by chezmoi
+
+# Git Switch
+alias gsw='git switch'
+alias gswm='git switch master'
+alias gswd='git switch develop'
+alias gswc='git switch -c'
+
+# Git Pull & Push
+alias gf='git fetch'
+alias gl='git pull'
+alias gst='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gp='git push'
+
+gpsup() {
+  local branch
+
+  branch=$(git branch --show-current) || {
+    echo "fatal: not a git repository" >&2
+    return 1
+  }
+
+  if [ -z "$branch" ]; then
+    echo "fatal: detached HEAD" >&2
+    return 1
+  fi
+
+  git push --set-upstream origin "$branch"
+}
+
+gbcp() {
+
+  local branch
+
+  branch=$(git branch --show-current) || {
+    echo "fatal: not a git repository" >&2
+    return 1
+  }
+
+  if [ -z "$branch" ]; then
+    echo "fatal: detached HEAD" >&2
+    return 1
+  fi
+
+  echo "$branch" | {{ if eq .chezmoi.os "darwin" }} pbcopy {{ else }} xclip -selection clipboard {{ end }}
+  echo "Copied branch name: $branch"
+}

@@ -1,3 +1,4 @@
 # Managed by chezmoi
 
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+[ -f "$HOME/.git_aliases" ] && source "$HOME/.git_aliases"

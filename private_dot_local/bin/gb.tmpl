@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# chezmoi template: interactive git branch selector (Linux + macOS)
+
+set -euo pipefail
+
+# --- OS / clipboard detection ---
+{{- if eq .chezmoi.os "darwin" }}
+CLIP="pbcopy"
+{{- else }}
+{{- if lookPath "wl-copy" }}
+CLIP="wl-copy"
+{{- else if lookPath "xclip" }}
+CLIP="xclip -selection clipboard"
+{{- else }}
+CLIP=""
+{{- end }}
+{{- end }}
+
+# --- Dependency checks ---
+command -v git >/dev/null || { echo "git not found"; exit 1; }
+command -v fzf >/dev/null || { echo "fzf not found"; exit 1; }
+
+# --- Collect branches ---
+branches=$(git branch --color=always | sed 's/^..//')
+[ -z "$branches" ] && { echo "No branches found."; exit 0; }
+
+# --- FZF selection (ESC-safe) ---
+selected=$(echo "$branches" | fzf --ansi --prompt="Select a branch: " --height=15 --reverse || true)
+[ -z "$selected" ] && exit 0
+
+# --- Strip ANSI colors ---
+branch=$(echo "$selected" | sed $'s/\x1b\\[[0-9;]*m//g')
+
+# --- Menu ---
+echo ""
+echo "Selected branch: $branch"
+echo "-------------------------"
+echo "1) Switch to branch"
+echo "2) Copy branch name to clipboard"
+echo "3) Delete the branch"
+echo "q) Quit"
+echo ""
+
+read -rp "Your choice [1/2/3/q]: " choice
+
+case "$choice" in
+  1)
+    git switch "$branch"
+    ;;
+  2)
+    if [ -n "$CLIP" ]; then
+      printf '%s' "$branch" | $CLIP
+      echo "Branch name copied to clipboard."
+    else
+      echo "$branch"
+    fi
+    ;;
+  3)
+    currentBranch=$(git branch --show-current)
+    if [ "$branch" = "$currentBranch" ]; then
+      defaultBranch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's#.*/##')
+      git switch "${defaultBranch:-main}"
+    fi
+    git branch -D "$branch"
+    ;;
+  q|Q)
+    echo "Aborted."
+    ;;
+  *)
+    echo "Invalid option."
+    ;;
+esac
+

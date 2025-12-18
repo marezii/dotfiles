@@ -1,4 +1,5 @@
 # Managed by chezmoi
 
+export PATH="$HOME/.local/bin:$PATH"
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -f "$HOME/.git_aliases" ] && source "$HOME/.git_aliases"

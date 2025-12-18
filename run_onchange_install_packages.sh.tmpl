@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # This hash comment is critical. Chezmoi checks the checksum of this file.
 # If you add a package to this list, the file changes, and the script runs.
-# PACKAGES: git, zsh, tmux, neovim, ripgrep, ghostty, xclip
+# PACKAGES: git, zsh, tmux, neovim, ripgrep, ghostty, xclip, fzf
 # ------------------------------------------------------------------------------
 
 set -e # Exit immediately if a command fails
@@ -29,6 +29,7 @@ brew "zsh"
 brew "tmux"
 brew "neovim"
 brew "ripgrep"
+brew "fzf"
 cash "ghostty"
 EOF
 
@@ -42,7 +43,7 @@ echo "Detected Linux. Updating apt..."
 sudo apt update
 
 echo "Installing Linux packages..."
-sudo apt install -y git zsh tmux neovim ripgrep xclip build-essential
+sudo apt install -y git zsh tmux neovim ripgrep fzf xclip build-essential
 
 # Install Ghostty on Ubuntu/Debian
 cd /tmp || exit 1

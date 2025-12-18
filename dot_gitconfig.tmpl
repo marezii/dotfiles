@@ -1,5 +1,33 @@
 [user]
-	name = {{ .name }}
-	email = {{ .email }}
+    name = {{ .name }}
+    email = {{ .email }}
+
 [core]
-	editor = vim
+    editor = vim
+    autocrlf = input
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple
+
+[fetch]
+    prune = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+
+[rerere]
+    enabled = true
+
+[color]
+    ui = auto
+
+[init]
+    defaultBranch = master
+

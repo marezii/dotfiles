@@ -1,0 +1,89 @@
+" ~/.ideavimrc
+
+" 1. Import Shared Settings
+source ~/.vimrc
+
+" 2. Enable IdeaVim Emulated Plugins
+set easymotion
+set surround
+set NERDTree
+set commentary
+
+" 3. IntelliJ Specific Settings
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+set clipboard+=ideaput
+
+" 4. IntelliJ Specific Mappings
+
+" Reload Config
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Window Splitting
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+" Window Navigation (Handler setup)
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nmap <C-w>= <Action>(MaximizeEditorInSplit)
+
+" Tab Navigation
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <Leader>qq :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+nnoremap <Leader>qo :action CloseAllEditorsButActive<CR>
+
+" Code Navigation
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap [c :action CollapseRegion<CR>
+nnoremap [o :action ExpandRegion<CR>
+nnoremap ]c :action CollapseRegion<CR>
+nnoremap ]o :action ExpandRegion<CR>
+nnoremap <leader>[c :action CollapseAllRegions<CR>
+nnoremap <leader>[o :action ExpandAllRegions<CR>
+nnoremap <leader>]c :action CollapseAllRegions<CR>
+nnoremap <leader>]o :action ExpandAllRegions<CR>
+
+" Refactoring & Tools
+nnoremap <leader>R :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>r :action ReformatCode<CR> :action OptimizeImports<CR>
+nnoremap <leader>e :action RecentFiles<CR>
+nnoremap <leader>o :action GotoClass<CR>
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>d :action GotoSymbol<CR>
+nnoremap <leader>/ :action FindInPath<CR>
+
+" Go To Actions
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gp :action GotoSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap <leader>l :action RecentLocations<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap <leader>s :action FileStructurePopup<CR>
+
+" Console / Transaction
+nnoremap <leader>z :action Console.Transaction.Rollback<CR>
+nnoremap <leader><CR> :action Console.Transaction.Commit<CR>
+nnoremap <leader>x :action Console.Transaction.TxSettings<CR>
+
+" Project View (NERDTree mapping)
+nmap m :NERDTreeToggle<CR>
+

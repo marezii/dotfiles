@@ -1,0 +1,41 @@
+" ~/.vimrc
+
+" --- General Settings ---
+set number              " Show line numbers
+set relativenumber      " Show relative line numbers
+set tabstop=4           " Set tab width to 4 spaces
+set shiftwidth=4        " Set indentation width to 4 spaces
+set ignorecase          " Case insensitive search
+set smartcase           " Case-sensitive search if uppercase is used
+set incsearch           " Incremental search
+
+" --- Leader Key ---
+let mapleader = " "
+
+" --- Shared Mappings ---
+
+" Center screen when scrolling
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Remap < and > to stick in Visual mode after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" Y yanks from cursor to end of line (consistent with C and D)
+nnoremap Y y$
+
+" Escape shortcuts
+imap jj <Esc>
+imap jk <Esc>
+
+" System Clipboard operations
+" (Note: For standard Vim, you usually want 'set clipboard=unnamedplus' 
+" depending on your OS, but these mappings work manually)
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <leader>P "+p
+
+" Search centering
+nnoremap n nzzv
+nnoremap N Nzzv

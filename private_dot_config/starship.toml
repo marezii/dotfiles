@@ -1,0 +1,98 @@
+# Starship prompt configuration (minimal, fast, Java-first)
+# -------------------------------------------------
+# Layout
+# -------------------------------------------------
+format = "$directory$line_break$character"
+right_format = "$git_branch $git_status $java ${custom.maven} $gradle $rust $docker_context $cmd_duration"
+
+# -------------------------------------------------
+# Directory
+# -------------------------------------------------
+[directory]
+truncate_to_repo = false
+truncation_length = 0
+style = "blue"
+
+# -------------------------------------------------
+# Git
+# -------------------------------------------------
+[git_branch]
+symbol = " "
+style = "purple"
+format = "[$symbol$branch ]($style)"
+
+[git_status]
+style = "yellow"
+format = "([$all_status$ahead_behind ]($style))"
+
+# -------------------------------------------------
+# Java
+# -------------------------------------------------
+[java]
+symbol = "☕ "
+style = "red"
+format = "[$symbol$version]($style)"
+
+# -------------------------------------------------
+# Maven (📦) — SAFE
+# -------------------------------------------------
+[custom.maven]
+style = "green"
+detect_files = ["pom.xml"]
+symbol = "📦"
+format = "via [$symbol]($style)"
+
+# -------------------------------------------------
+# Gradle
+# -------------------------------------------------
+[gradle]
+style = "yellow"
+symbol = "🐘"
+disabled = false
+
+# -------------------------------------------------
+# Docker
+# -------------------------------------------------
+[docker_context]
+symbol = "🐳 "
+style = "cyan"
+format = "[$symbol$context]($style)"
+
+# -------------------------------------------------
+# Rust
+# -------------------------------------------------
+[rust]
+symbol = "🦀 "
+style = "bright-red"
+format = "[$symbol$version]($style)"
+
+# -------------------------------------------------
+# Command duration
+# -------------------------------------------------
+[cmd_duration]
+min_time = 500
+format = "took [$duration]($style)"
+style = "dimmed white"
+
+# -------------------------------------------------
+# Prompt character
+# -------------------------------------------------
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+
+# -------------------------------------------------
+# Disable noise
+# -------------------------------------------------
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[golang]
+disabled = true
+

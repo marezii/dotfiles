@@ -32,8 +32,8 @@ imap jk <Esc>
 " System Clipboard operations
 " (Note: For standard Vim, you usually want 'set clipboard=unnamedplus' 
 " depending on your OS, but these mappings work manually)
-vmap <Leader>y "+y
-vmap <Leader>d "+d
+vmap <leader>y "+y
+vmap <leader>d "+d
 nmap <leader>P "+p
 
 " Search centering

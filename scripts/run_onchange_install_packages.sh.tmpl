@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # This hash comment is critical. Chezmoi checks the checksum of this file.
 # If you add a package to this list, the file changes, and the script runs.
-# PACKAGES: git, zsh, tmux, neovim, ripgrep, ghostty, xclip, fzf, psql, curl
+# PACKAGES: git, zsh, tmux, neovim, ripgrep, ghostty, xclip, fzf, psql, curl, starship
 # ------------------------------------------------------------------------------
 
 set -e # Exit immediately if a command fails
@@ -33,6 +33,7 @@ brew "fzf"
 brew "curl"
 brew "libpq"
 cash "ghostty"
+cash "starship"
 EOF
 
 {{ else if eq .chezmoi.os "linux" -}}
@@ -45,11 +46,23 @@ echo "Detected Linux. Updating apt..."
 sudo apt update
 
 echo "Installing Linux packages..."
-sudo apt install -y git curl zsh tmux neovim ripgrep fzf postgresql-client xclip build-essential
+sudo apt install -y git curl zsh tmux neovim vim-gtk3 ripgrep fzf postgresql-client xclip build-essential
 
 # Install Ghostty on Ubuntu/Debian
-cd /tmp || exit 1
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+if ! command -v ghostty &> /dev/null; then
+	cd /tmp || exit 1
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+else
+	echo "✅ Ghostty is already installed."
+fi
+
+# Install Starship
+if ! command -v starship &> /dev/null; then
+	curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+else
+	echo "✅ Starship is already installed."
+fi
+
 
 {{ end -}}
 

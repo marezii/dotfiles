@@ -8,3 +8,12 @@ alias zshrcs='chezmoi apply && source ~/.zshrc'
 alias aliase='chezmoi edit ~/.aliases'
 
 alias c='clear'
+
+alias chcd='chezmoi cd'
+
+{{ if eq .chezmoi.os "darwin" -}}
+	alias copy='pbcopy'
+{{ else if eq .chezmoi.os "linux" -}}
+	alias copy='xclip -selection clipboard'
+{{ end }}
+

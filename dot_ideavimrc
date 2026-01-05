@@ -36,6 +36,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nmap <C-w>= <Action>(MaximizeEditorInSplit)
 
+" Resize Splits
+nnoremap <M-S-H> :action StretchSplitToLeft<CR>
+nnoremap <M-S-L> :action StretchSplitToRight<CR>
+nnoremap <M-S-K> :action StretchSplitToTop<CR>
+nnoremap <M-S-J> :action StretchSplitToBottom<CR>
+
 " Tab Navigation
 nnoremap <TAB> :action NextTab<CR>
 nnoremap <s-TAB> :action PreviousTab<CR>

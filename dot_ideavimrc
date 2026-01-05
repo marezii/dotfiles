@@ -13,7 +13,7 @@ set commentary
 set ideajoin
 set ideastatusicon=gray
 set idearefactormode=keep
-set clipboard+=ideaput
+set clipboard+=unnamed,ideaput
 
 " 4. IntelliJ Specific Mappings
 

@@ -202,7 +202,7 @@ Ova komanda će uraditi sledeće:
 3. Klonirati sadržaj Git repozitorijum *https://github.com/marezii/dotfiles.git* u `~/.local/share/chezmoi` (u daljem tekstu Chezmoi dir).
 4. Pokrenuti Chezmoi engine da se izvrše sve postojeće skripte, izgenerišu fajlovi od šablona i pokrenuće se interaktivni upitnik sa neophodnim pitanjima koje su potrebne Chezmoi-u.
 
-**PAŽNJA: Ako odlučiš krenuti ovim korakom, obavezno napravi rezerne kopije svojih konfiguracionih fajlova zato što će chezmoi pregaziti postojeće fajlove za koje postoji šablon u Chezmoi dir-u.**
+**PAŽNJA: Ako odlučiš krenuti ovim korakom, obavezno napravi rezervne kopije svojih konfiguracionih fajlova zato što će chezmoi pregaziti postojeće fajlove za koje postoji šablon u Chezmoi dir-u.**
 
 **Na primer: već koristiš `.zshrc`? Koristeći komandu:**
 ```bash 

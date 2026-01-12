@@ -47,7 +47,7 @@ Problemi sa kojima sam se suočio su:
 
 * Odstupanje konfiguracije (Config Drift): Vremenom se konfiguracije na različitim mašinama razilaze, što dovodi do problema "radi na mojoj mašini, ali ne na tvojoj". Konkretno, pošto veliku većinu vremena koristim moj lični računar, a povremeno svoj privatni laptop, dešava se da vremenom dolazi do razilaženja konfiguracija na ova dva laptopa.
 
-* "Bus Faktor" i Oporavak: Ručno podešavanje nove mašine nakon kvara može trajati danima. Cilj je smanjiti to vreme na minute. U toku prvog meseca rada u novoj kompaniji, nakon inicijalnog podešavanja mog razvojnog okruženja desilo se, greškom, da je tehnička podrška vratila moj laptop na fabrička podešavanja u toku radnog vremena. Zato što nisam imao konfiguraciju sačuvanu, bilo mi je potreban ceo radni dan da povratim svoje radno okruženje u radno stanje.
+* Oporavak: Ručno podešavanje nove mašine nakon kvara može trajati danima. Cilj je smanjiti to vreme na minute. U toku prvog meseca rada u novoj kompaniji, nakon inicijalnog podešavanja mog razvojnog okruženja desilo se, greškom, da je tehnička podrška vratila moj laptop na fabrička podešavanja u toku radnog vremena. Zato što nisam imao konfiguraciju sačuvanu, bilo mi je potreban ceo radni dan da povratim svoje radno okruženje u radno stanje.
 
 * Promena konteksta: Zaboravljanje aliasa i prečica pri prelasku sa jednog sistema na drugi. I dan danas se dešava da nailazim na prečice koje su radile na mom starom poslovnom laptopu, a koje ne rade na novom. Lako je to nadomestiti, ali mi je bilo potrebno da ponovo dođem do situacije da mi je prečica potrebna i da se setim kako sam je podesio.
 
